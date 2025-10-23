@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Giỏ hàng</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Online Shop</h1>
+    <nav>
+      <a href="/index.html">Sản phẩm</a>
+      <a href="/cart.html">Giỏ hàng</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Giỏ hàng của bạn</h2>
+    <div id="cart-items"></div>
+    <div id="cart-total"></div>
+    <button id="btn-clear">Xoá giỏ hàng</button>
+  </main>
+
+  <footer>
+    <p>© 2025 Online Shop</p>
+  </footer>
+
+  <script src="/script.js"></script>
+  <script>
+    loadCart();
+    document.getElementById('btn-clear').addEventListener('click', clearCart);
+  </script>
+</body>
+</html>
