@@ -1,1 +1,22 @@
-{}
+{
+  "name": "shop-app-server",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Simple Online Shop - Node.js + Express + SQLite (Singleton DB)",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^9.6.0",
+    "express": "^4.19.2",
+    "express-session": "^1.17.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
