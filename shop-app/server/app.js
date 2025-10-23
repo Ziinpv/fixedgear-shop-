@@ -51,6 +51,19 @@ app.post('/api/cart/clear', (req, res) => {
   res.json({ ok: true, cart: [] });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server đang chạy tại http://localhost:${PORT}`);
-});
+function startServer(port, triesLeft = 10) {
+  const server = app.listen(port, () => {
+    console.log(`Server đang chạy tại http://localhost:${port}`);
+  });
+  server.on('error', (err) => {
+    if (err && err.code === 'EADDRINUSE' && triesLeft > 0) {
+      const nextPort = Number(port) + 1;
+      console.warn(`Port ${port} bận, thử lại với port ${nextPort}...`);
+      startServer(nextPort, triesLeft - 1);
+    } else {
+      console.error('Không thể khởi động server:', err);
+      process.exit(1);
+    }
+  });
+}
+startServer(PORT);
